@@ -18,10 +18,13 @@ function App() {
 
   const postTodo = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/api/sendTodo", {
-        name: value,
-        status: true,
-      });
+      const response = await axios.post(
+        "https://todo-backend-app.up.railway.app/api/sendTodo",
+        {
+          name: value,
+          status: true,
+        }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -29,7 +32,9 @@ function App() {
 
   const getTodo = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/todoList");
+      const response = await axios.get(
+        "https://todo-backend-app.up.railway.app/api/todoList"
+      );
       setnewitem(response.data);
     } catch (error) {
       console.log(error);
@@ -39,7 +44,7 @@ function App() {
   const deleteTodo = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/deleteTodo/${id}`
+        `https://todo-backend-app.up.railway.app/api/deleteTodo/${id}`
       );
     } catch (error) {
       console.log(error);
@@ -49,7 +54,7 @@ function App() {
   const updateTodo = async (id) => {
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/updateTodo/${id}`
+        `https://todo-backend-app.up.railway.app/api/updateTodo/${id}`
       );
     } catch (error) {}
   };
@@ -57,7 +62,7 @@ function App() {
   const deleteInactive = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/deletedInactive`
+        `https://todo-backend-app.up.railway.app/api/deletedInactive`
       );
     } catch (error) {}
   };
