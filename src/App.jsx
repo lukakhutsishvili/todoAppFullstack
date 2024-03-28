@@ -69,7 +69,7 @@ function App() {
 
   useEffect(() => {
     getTodo();
-  }, [updateTodo]);
+  }, [updateTodo, postTodo]);
 
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -161,7 +161,13 @@ function App() {
             />
           </header>
           <section>
-            <form onSubmit={postTodo}>
+            <form
+              onSubmit={(e) => {
+                postTodo();
+                e.preventDefault();
+                setnewvalue("");
+              }}
+            >
               <Input
                 light={light}
                 value={value}
